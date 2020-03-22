@@ -1,0 +1,41 @@
+/* Warning */
+body
+{
+    width: 384px;
+    padding: 20px;
+    font-size: 14px;     
+}
+h1
+{
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0;
+    color: #2f5876;
+}
+h3 
+{
+    font-family: "Nunito", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    color: #311432;
+}
+img 
+{
+    display: block;
+    margin: 0 auto;
+}
+.logo {
+    padding: 16px;
+}
+.logo-icon {
+    display: unset;
+    width: 30px;
+    padding: 0;
+    vertical-align: text-bottom;
+    margin-right: 12px;
+}
+textarea{
+    width: 100%;
+}

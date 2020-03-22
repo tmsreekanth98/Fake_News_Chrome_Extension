@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="fontawesome.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  
+
+
+</head>
+<body>
+<div id="entry">	
+	<h1 class="logo">
+    	<img class="logo-icon" src="images/detector-logo.png" />Fake News Detector
+    	<span class="version">(1.0.0)</span>
+	</h1>
+
+	<div class="container">
+  <p>Mode: <span style="color:green;">Custom Text</span>&nbsp;<a><span id="switchToCNN" style="text-decoration:underline;cursor:pointer;">(Switch to CNN mode)</span></a></p>
+  		<div style="border:1px solid #202020;padding: 2px;">
+      <p id="text"> Please Select Text To Analyse! </p>
+       </div><br>
+   		<button id="paste" type="button" class="btn btn-primary btn-sm">Paste Selection</button>
+   		<button id="analyse" type="button" class="btn btn-success btn-sm">Analyse</button>
+	</div>
+</div>
+<div id="loading" style="display: none">
+    <p align="center" class="msg" id="response">Analysing Article...</p>
+    <img id="loading-img" src="images/loading.gif" style="width: 54px; height: 54px;">
+</div>
+<div id="content" style="display: none">
+    <div class="container pb-3 pt-3">
+    <div class="h5 pb-3">Results</div>
+      <div id="statistics" class="card card-body bg-light mb-3">
+        <div class="h5 pb-3">Statistics</div>
+        <div class="ff-flag">
+          <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">false</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 20%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">half-true</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 69%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">mostly-true</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">true</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 88%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">barely-true</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 5%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        <div class="ff-flag-row form-row">
+            <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">pants-on-fire</div>
+            <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+              <div class="progress mb-2" style="background: rgba(209, 186, 250, 0.2); max-width: 273px;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 33%; background: rgb(209, 186, 250);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="h6 pb-0">Truth Percentage: <span id="percentage_range" style="display: none">70%</span><span id="percentage" style="display: none">70%</span></div>
+      <button id="calculate" type="button" class="btn btn-dark btn-sm">Show</button>
+    </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
