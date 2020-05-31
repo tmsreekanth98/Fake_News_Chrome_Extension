@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="fontawesome.js"></script>
+        <script src="jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="entry">
+            <h1 class="logo">
+                <img class="logo-icon" src="images/detective.png" />Faux Investigator
+                <span class="version">(1.0.0)</span>
+            </h1>
+
+
+            <div class="container" style="padding: 13px;margin-top: 0px;">
+                <p style="margin: 0px;padding:1px;border-top:1px solid #202020;border-right:1px solid #202020;border-left:1px solid #202020; width: 100%;text-align: center;background-color: white;">
+                  <b>Mode: <span style="color:green;">Custom Text</span>&nbsp; <a><span id="switchToNormal" style="text-decoration:underline;cursor:pointer;">(Switch to Home)</span></b></a>
+                </p>
+                <div style="text-align: center;border:1px solid #202020;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;padding: 20px;background-color: white;">
+                
+
+                  <div style="border:1px solid #202020;padding: 5px;margin-bottom: 10px;">
+                    <p id="text" style="overflow-y: scroll;max-height: 300px;"> Please Select Text To Analyse! </p>
+                    </div>
+                    <button id="paste" type="button" class="btn btn-primary btn-sm" style="width: 49%;">Paste Selection</button>
+                    <button id="analyse" type="button" class="btn btn-success btn-sm" style="width: 49%;">Analyse</button>
+                  </div>
+                
+            </div>
+
+        </div>
+        <div id="loading" style="display: none">
+
+            <h1 class="logo">
+                <img class="logo-icon" src="images/detective.png" />Faux Investigator
+                <span class="version">(1.0.0)</span>
+            </h1>
+
+            <div style="padding: 13px;margin-top: 0px;">
+            <div style="text-align: center;border:1px solid #202020;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;padding: 20px;background-color: white;">
+            <b><p align="center" class="msg" id="response">Analysing Article...</p></b>
+            <img id="loading-img" src="images/loading.gif" style="width: 54px; height: 54px;">
+            </div>
+            </div>
+        </div>
+
+        
+        <div id="content" style="display: none">
+
+            <h1 class="logo">
+                <img class="logo-icon" src="images/detective.png" />Faux Investigator
+                <span class="version">(1.0.0)</span>
+            </h1>
+
+            <div style="padding: 13px;margin-top: 0px;">
+            <p style="margin: 0px;padding:1px;border-top:1px solid #202020;border-right:1px solid #202020;border-left:1px solid #202020; width: 100%;text-align: center;background-color: white;"><b>ANALYSIS RESULTS</b></p>
+            <div style="text-align: center;border:1px solid #202020;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;padding: 20px;background-color: white;">
+
+            <div class="container pb-3 pt-3 ">
+            <!-- <div class="h5 pb-3">Results</div> -->
+            <div class="card" style="background-color: #EEEEFF;color: black;">
+            <div class="h6 pb-3 card-header" style="color:#202020;"><b>Class Membership</b></div>
+            <div id="statistics" class="card-body mb-3">
+                
+                <div class="ff-flag">
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">pants-on-fire</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background: rgba(246,70,70,0.4); max-width: 273px;">
+                                <div id="pantsonfire" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(246,70,70);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">false</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background:rgba(246,70,81,0.4) ; max-width: 273px;">
+                                <div id="false" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(246,70,81);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">barely-true</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background: rgba(255, 100, 80,0.5); max-width: 273px;">
+                                <div id="barelytrue" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(255, 100, 80);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">half-true</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background: rgba(50,188,160,0.4); max-width: 273px;">
+                                <div id="halftrue" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(50,188,160);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">mostly-true</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background: rgba(50,188,120,0.4); max-width: 273px;">
+                                <div id="mostlytrue" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(50,188,120);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-flag-row form-row">
+                        <div class="col-4 col-xs-6 col-sm-4 col-md-4 text-right">true</div>
+                        <div class="col-8 col-xs-6 col-sm-8 col-md-8">
+                            <div class="progress mb-2" style="background: rgba(0, 168, 107,0.4); max-width: 273px;">
+                                <div id="true" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background: rgba(0, 168, 107);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br>
+            <div class="h6 pb-0"><b>Classification: <span id="classification" style="display: none"></span></b></div>
+            <div class="h6 pb-0" style="font-size: 14px;"><b>Truth Percentage: <span id="percentage_range" style="display: none"><b>(Page Scan error!)</b></span><span id="percentage" style="display: none"><b>(Page Scan error!)</b></span></b></div>
+
+                <button id="calculate" type="button" class="btn btn-dark btn-sm" style="margin-top: 3px;background-color: #202020;">Show Results</button>
+        </div>
+
+            </div>
+            </div>
+        </div>
+
+
+        <script src="textpopup.js"></script>
+    </body>
+</html>

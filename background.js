@@ -1,46 +1,4 @@
-// chrome.runtime.onInstalled.addListener(function() {
-//     chrome.storage.sync.set({color: '#3aa757'}, function() {
-//         console.log('The color is green.');
-//     });
-//     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-//         chrome.declarativeContent.onPageChanged.addRules([{
-//             conditions: [new chrome.declarativeContent.PageStateMatcher({
-//                 pageUrl: {hostEquals: 'developer.chrome.com'},
-//             })
-//             ],
-//             actions: [new chrome.declarativeContent.ShowPageAction()]
-//         }]);
-//     });
-// });
 
-// Called when the user clicks on the browser action.
-
-
-
-
-	// var url = ""
-	// var domain = ""
-	// chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-	//     url = tabs[0].url;
-	//     domain = url.replace('http://','').replace('https://','').split(/[/?#]/)[0];
-	// });
-
-	// console.log(url)
-	// if(domain == "twitter.com"){
-	//   chrome.browserAction.setPopup({popup:'CNNpopup.html'});
-	//   console.log("ff")
-	// }
-	// else{
-	//   chrome.browserAction.setPopup({popup:'popup.html'});
-	//   console.log("haha")
-	// }
-
-
-
-// chrome.tabs.onActivated.addListener(function(activeInfo) {
-//     console.log(activeInfo.tabId);
-
-// });
 
 
 //Upon page refresh check whether the website is twitter and change the html page.
@@ -58,10 +16,21 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     	chrome.tabs.executeScript(null, {file: "CNNUseCase.js"});
     	console.log("A")
     }
+    else if(domain == 'timesofindia.indiatimes.com'){
+        chrome.browserAction.setPopup({tabId:tabId,popup:'TOIpopup.html'});
+        chrome.tabs.executeScript(null, {file: "TOIUseCase.js"});
+        console.log("A")
+    }
     else{
     	chrome.browserAction.setPopup({tabId:tabId,popup:'popup.html'});
     	console.log("B")
     }
+
+    
+    // else{
+    // 	chrome.browserAction.setPopup({tabId:tabId,popup:'popup.html'});
+    // 	console.log("B")
+    // }
 
 
   }
@@ -96,13 +65,19 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 
     if(domain == 'edition.cnn.com'){
-    	chrome.browserAction.setPopup({tabId:tab.id,popup:'CNNpopup.html'});
-    	console.log("A")
+        chrome.browserAction.setPopup({tabId:tabId,popup:'CNNpopup.html'});
+        chrome.tabs.executeScript(null, {file: "CNNUseCase.js"});
+        console.log("A")
+    }
+    else if(domain == 'timesofindia.indiatimes.com'){
+        chrome.browserAction.setPopup({tabId:tabId,popup:'TOIpopup.html'});
+        chrome.tabs.executeScript(null, {file: "TOIUseCase.js"});
+        console.log("A")
     }
     else{
-    	chrome.browserAction.setPopup({tabId:tab.id,popup:'popup.html'});
-    	console.log("B")
-    }    
+        chrome.browserAction.setPopup({tabId:tabId,popup:'popup.html'});
+        console.log("B")
+    }
 
  	
     //new chrome.declarativeContent.ShowPageAction();

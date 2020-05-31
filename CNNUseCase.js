@@ -5,13 +5,6 @@ console.log("CNNUseCase.js loaded");
 
 
 
-// $('.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0').each(function(index){
-//     var t = $(this).html();
-//     console.log(t);
-//     $(this).effect( "highlight", {color:"#669966"}, 3000 );
-// });
-
-
 
 
 //Gathering required data from CNN article
@@ -21,11 +14,16 @@ console.log(headline);
 
 // // var authors = $('.metadata__byline__author').find('a').text();
 
-var authors = "";
+var author = "";
 $('.metadata__byline__author').children().each(function(index){
-	authors = authors + $(this).html() + " ";
+	author = author + $(this).html() + " ";
 })
-console.log(authors);
+console.log(author);
+
+if(author = ""){
+	author = $('.metadata__byline__author').text().replace("CNN","").replace(",","").replace("and","");
+}
+
 
 var para = $('.zn-body__paragraph').text().replace(/(<([^>]+)>)/ig,"").replace(/["']/g, "")
 para = para.split(" ").splice(0,1000).join(" ");
@@ -39,6 +37,6 @@ console.log(para);
 
 chrome.runtime.sendMessage({
   heading: headline,
-  author: authors,
+  author: author,
   text: para
 });

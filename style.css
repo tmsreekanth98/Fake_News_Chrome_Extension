@@ -1,9 +1,11 @@
 /* Warning */
 body
 {
-    width: 384px;
+    width: 400px;
     padding: 20px;
-    font-size: 14px;     
+    font-size: 12px; 
+    background-image: url('images/bg.jpg');
+    border:3px solid black;    
 }
 h1
 {
@@ -26,16 +28,51 @@ img
     display: block;
     margin: 0 auto;
 }
+p{
+    font-size: 14px;
+}
 .logo {
-    padding: 16px;
+    padding: 10px;
+    background-color: #202020;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: -14px;
+    margin-right: 13px;
+    margin-left: 13px;
+    color: white;
 }
 .logo-icon {
     display: unset;
-    width: 30px;
+    width: 40px;
     padding: 0;
     vertical-align: text-bottom;
     margin-right: 12px;
 }
 textarea{
     width: 100%;
+    height: 30px;
+    overflow-y: scroll;
+}
+
+#switchToTEXT:hover{
+    transform: scale(1.1,1.1);
+}
+
+#switchToCNN:hover{
+    transform: scale(1.1,1.1);
+}
+
+#switchToTOI:hover{
+    transform: scale(1.1,1.1);
+}
+
+.text-right{
+    color: #202020;
+    font-family: 'Nunito';
+    font-size:12px;
+    
+}
+
+.inner-box{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
